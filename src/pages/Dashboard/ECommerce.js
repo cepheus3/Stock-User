@@ -12,6 +12,7 @@ import axiosinstance2 from '../../Axios/Axios2';
  */
 import { useStateValue } from '../../Context/StateProvider.js';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 const ECommerce = () => {
   const [{ token, TotalSell, amount, customer }, dispatch] = useStateValue();
 /*   const getcompanyData = async () => {
@@ -26,6 +27,7 @@ const ECommerce = () => {
     return result;
   };
   getcompanyData(); */
+ 
   useEffect(() => {
     const tokken = localStorage.getItem('user');
     /*   const CompanyName=localStorage.getItem('companyName')
