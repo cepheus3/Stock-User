@@ -2,7 +2,7 @@ import { ApexOptions } from 'apexcharts';
 import React, { useState } from 'react';
 import ReactApexChart from 'react-apexcharts';
 
-const options= {
+const options = {
   colors: ['#3C50E0', '#80CAEE'],
   chart: {
     fontFamily: 'Satoshi, sans-serif',
@@ -62,8 +62,6 @@ const options= {
   },
 };
 
-
-
 const ChartTwo = () => {
   const [state, setState] = useState({
     series: [
@@ -78,12 +76,13 @@ const ChartTwo = () => {
     ],
   });
 
+  const [enabled, setEnabled] = useState(false);
   return (
     <div className="col-span-12 rounded-sm border border-stroke bg-white p-7.5 shadow-default dark:border-strokedark dark:bg-boxdark xl:col-span-4">
       <div className="mb-4 justify-between gap-4 sm:flex">
         <div>
           <h4 className="text-xl font-semibold text-black dark:text-white">
-            Profit this week
+            stock bay/sell
           </h4>
         </div>
         <div>
@@ -93,8 +92,8 @@ const ChartTwo = () => {
               id="#"
               className="relative z-20 inline-flex appearance-none bg-transparent py-1 pl-3 pr-8 text-sm font-medium outline-none"
             >
-              <option value="">This Week</option>
-              <option value="">Last Week</option>
+              <option value="">BAY</option>
+              <option value="">SEL</option>
             </select>
             <span className="absolute top-1/2 right-3 z-10 -translate-y-1/2">
               <svg
@@ -120,15 +119,52 @@ const ChartTwo = () => {
         </div>
       </div>
 
-      <div>
-        <div id="chartTwo" className="-ml-5 -mb-9">
-          <ReactApexChart
-            options={options}
-            series={state.series}
-            type="bar"
-            height={350}
-          />
+      <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
+        <div className="border-b border-stroke py-4 px-6.5 dark:border-strokedark"></div>
+        <div className="flex flex-col gap-5.5 p-6.5">
+          <div>
+            <label className="mb-3 block text-black dark:text-white">
+              No of Stock
+            </label>
+            <input
+              type="number"
+              className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
+            />
+          </div>
+
+          <div>
+            <label className="mb-3 block font-medium text-black dark:text-white">
+              Want insured?
+            </label>
+            <div>
+              <label
+                htmlFor="toggle1"
+                className="flex cursor-pointer select-none items-center"
+              >
+                <div className="relative">
+                  <input
+                    type="checkbox"
+                    id="toggle1"
+                    className="sr-only"
+                    onChange={() => {
+                      setEnabled(!enabled);
+                    }}
+                  />
+                  <div className="block h-8 w-14 rounded-full bg-meta-9 dark:bg-[#5A616B]"></div>
+                  <div
+                    className={`absolute left-1 top-1 h-6 w-6 rounded-full bg-white transition ${
+                      enabled &&
+                      '!right-1 !translate-x-full !bg-primary dark:!bg-white'
+                    }`}
+                  ></div>
+                </div>
+              </label>
+            </div>
+          </div>
         </div>
+        <button className="flex w-full justify-center rounded bg-primary p-3 font-medium text-gray">
+          BUY Stock
+        </button>
       </div>
     </div>
   );
