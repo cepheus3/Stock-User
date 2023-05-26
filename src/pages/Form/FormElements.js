@@ -10,10 +10,12 @@ import SwitcherThree from '../../components/SwitcherThree';
 import SwitcherTwo from '../../components/SwitcherTwo';
 import DefaultLayout from '../../layout/DefaultLayout';
 import { useState } from 'react';
+import { useStateValue } from '../../Context/StateProvider.js';
 
 const FormElements = () => {
   const [enabled, setEnabled] = useState(false);
-  return (
+  const[{token},dispatch] = useStateValue()
+  return (    
     <DefaultLayout>
       <Breadcrumb pageName="FormElements" />
 

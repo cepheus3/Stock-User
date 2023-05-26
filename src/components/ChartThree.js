@@ -48,7 +48,7 @@ const options= {
   ],
 };
 
-const ChartThree: React.FC = () => {
+const ChartThree = () => {
   const [state, setState] = useState<ChartThreeState>({
     series: [65, 34, 12, 56],
   });

@@ -113,7 +113,7 @@ const Buttons = () => {
       <div className="mb-10 rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
         <div className="border-b border-stroke px-7 py-4 dark:border-strokedark">
           <h3 className="font-medium text-black dark:text-white">
-            Button With Icon
+            Button With Icon 1
           </h3>
         </div>
 
@@ -142,7 +142,7 @@ const Buttons = () => {
                   />
                 </svg>
               </span>
-              Button With Icon
+              Button With Icon 2
             </Link>
 
             <Link
@@ -168,7 +168,7 @@ const Buttons = () => {
                   />
                 </svg>
               </span>
-              Button With Icon
+              Button With Icon 3
             </Link>
 
             <Link
@@ -194,7 +194,7 @@ const Buttons = () => {
                   />
                 </svg>
               </span>
-              Button With Icon
+              Button With Icon 4
             </Link>
 
             <Link
@@ -220,7 +220,7 @@ const Buttons = () => {
                   />
                 </svg>
               </span>
-              Button With Icon
+              Button With Icon 5
             </Link>
           </div>
 
@@ -252,7 +252,7 @@ const Buttons = () => {
                   />
                 </svg>
               </span>
-              Button With Icon
+              Button With Icon 6
             </Link>
 
             <Link
@@ -282,7 +282,7 @@ const Buttons = () => {
                   />
                 </svg>
               </span>
-              Button With Icon
+              Button With Icon 7
             </Link>
 
             <Link
@@ -311,8 +311,8 @@ const Buttons = () => {
                     fill=""
                   />
                 </svg>
-              </span>
-              Button With Icon
+              </span> 
+              Button With Icon 8
             </Link>
 
             <Link
@@ -342,7 +342,7 @@ const Buttons = () => {
                   />
                 </svg>
               </span>
-              Button With Icon
+              Button With Icon 9
             </Link>
           </div>
 
@@ -373,7 +373,7 @@ const Buttons = () => {
                   </defs>
                 </svg>
               </span>
-              Button With Icon
+              Button With Icon 10
             </Link>
 
             <Link
@@ -402,7 +402,7 @@ const Buttons = () => {
                   </defs>
                 </svg>
               </span>
-              Button With Icon
+              Button With Icon 11
             </Link>
 
             <Link
@@ -431,7 +431,7 @@ const Buttons = () => {
                   </defs>
                 </svg>
               </span>
-              Button With Icon
+              Button With Icon 12
             </Link>
 
             <Link

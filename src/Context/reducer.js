@@ -25,11 +25,22 @@ const reducer = (state, action) => {
         ...state,
         customer: action.customer,
       };
+      case 'userEmail':
+        return {
+          ...state,
+          userEmail: action.userEmail,
+        };
     case 'company':
       return {
         ...state,
         company: action.company,
       };
+
+      case 'currentCompany':
+        return {
+          ...state,
+          currentCompany: action.currentCompany,
+        };
     default:
       return state;
   }

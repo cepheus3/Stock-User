@@ -15,7 +15,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 const ECommerce = () => {
   const [{ token, TotalSell, amount, customer }, dispatch] = useStateValue();
-/*   const getcompanyData = async () => {
+  /*   const getcompanyData = async () => {
     const _token = localStorage.getItem('user');
     const result = await axios.get('http://localhost:2000/api/getCompany', {
       headers: {
@@ -27,7 +27,7 @@ const ECommerce = () => {
     return result;
   };
   getcompanyData(); */
- 
+
   useEffect(() => {
     const tokken = localStorage.getItem('user');
     /*   const CompanyName=localStorage.getItem('companyName')
@@ -66,17 +66,6 @@ dispatch({
     console.log(err)
   }) */
     }
-
-    axiosinstance2
-      .get('/getCompany')
-      .then((data) => {
-        if (data) {
-          console.log(data);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
   }, []);
   return (
     token && (
@@ -84,17 +73,14 @@ dispatch({
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">
           <CardOne />
           <CardTwo />
-          <CardThree />
           <CardFour />
+          <CardThree />
         </div>
 
-        <div className="mt-4 grid grid-cols-12 gap-4 md:mt-6 md:gap-6 2xl:mt-7.5 2xl:gap-7.5">
+        <div className="mt-4 grid grid-cols-12 gap-2 md:mt-6 md:gap-6 2xl:mt-7.5 2xl:gap-7.5">
           <ChartOne />
           <ChartTwo />
-
-          <div className="col-span-12 xl:col-span-8">
-            <TableOne />
-          </div>
+          <TableOne />
         </div>
       </DefaultLayout>
     )
