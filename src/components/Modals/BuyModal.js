@@ -15,7 +15,7 @@ export default function BuyModal({ name, price, stockName }) {
 
   const [{ company, userEmail, currentCompany }, dispatch] = useStateValue();
   const buyStock = () => {
-    console.log(company, userEmail, currentCompany, 'uisyruiyeruiyweuiyui');
+    //console.log(company, userEmail, currentCompany, 'uisyruiyeruiyweuiyui');
     axiosinstance3
       .post('/buyStock', {
         companyName: name,
@@ -51,19 +51,17 @@ export default function BuyModal({ name, price, stockName }) {
   };
 
   const sellStock = () => {
-    console.log(company, userEmail, currentCompany, 'uisyruiyeruiyweuiyui');
+    //console.log(company, userEmail, currentCompany, 'uisyruiyeruiyweuiyui');
     axiosinstance3
-      .post('/sellStock', {
+      .post('/company/sellStock', {
         companyName: name,
-        username: userEmail,
-        amount: amountbuy,
-        price: price * amountbuy,
-        stockName: stockName,
+        userName: userEmail,
+        amount: amountsell,
       })
       .then((res) => {
         if (res.status == '200') {
-          console.log(amountbuy, 'Buyyyyyy');
-          setmessage(res.data.message);
+          console.log(amountsell, name, userEmail, 'Selllllllll', res);
+          setmessage(`succefully sold stock from ${name}`);
           setTimeout(() => {
             setmessage(false);
             setShowModal(false);
@@ -74,6 +72,7 @@ export default function BuyModal({ name, price, stockName }) {
           console.log(res.data.error);
           setTimeout(() => {
             setmessage(false);
+            //setShowModal(true);
           }, 2000);
         }
       })
@@ -98,7 +97,10 @@ export default function BuyModal({ name, price, stockName }) {
         >
           Buy/Sell
         </button>
+        
       </div>
+
+      
       {showModal ? (
         <>
           <div className="fixed inset-0 z-10 overflow-y-auto ">

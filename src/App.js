@@ -17,6 +17,7 @@ import Settings from '../src/pages/Settings.js';
 import Tables from '../src/pages/Tables.js';
 import Alerts from '../src/pages/UiElements/Alerts.js';
 import Popup from './pages/UiElements/Popup';
+import Deposit from './pages/UiElements/Deposit'
 import Buttons from '../src/pages/UiElements/Buttons.js';
 function App() {
   const [{token,cart,product,catagories},dispatch]=useStateValue()
@@ -43,7 +44,8 @@ function App() {
      <Route path="/settings" element={<Settings />} />
      <Route path="/chart" element={<Chart />} />
      <Route path="/ui/alerts" element={<Alerts />} />
-     <Route path="/ui/popup" element={<Popup />} />
+     <Route path="/withdraw" element={<Popup />} />
+     <Route path="/deposit" element={<Deposit />} />
      <Route path="/ui/buttons" element={<Buttons />} />
      <Route path="/auth/signin" element={<SignIn />} />
      <Route path="/auth/signup" element={<SignUp />} />

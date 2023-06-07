@@ -63,7 +63,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
       {/* <!-- SIDEBAR HEADER --> */}
       <div className="flex items-center justify-between gap-2 px-6 py-5.5 lg:py-6.5">
         <NavLink className='text-white' to="/dashboard">
-          <img src={Logo} className=' rounded-full w-[150px] h-[100px]' alt="Logo" />
+          <img  className=' rounded-full w-[150px] h-[100px]' alt="User Dashboard  " />
         </NavLink>
 
         <button
@@ -569,7 +569,18 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
                                 (isActive && '!text-white')
                               }
                             >
-                              popup
+                              Withdraw
+                            </NavLink>
+                            </li>
+                            <li>
+                            <NavLink
+                              to="/ui/popup"
+                              className={({ isActive }) =>
+                                'group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white ' +
+                                (isActive && '!text-white')
+                              }
+                            >
+                              Deposit
                             </NavLink>
                           </li>
 

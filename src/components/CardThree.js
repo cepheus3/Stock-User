@@ -6,7 +6,7 @@ const CardThree = () => {
 
     <div className="flex flex-wrap gap-5 xl:gap-7.5">
     <Link
-      to="#"
+      to="/deposit"
       className="inline-flex items-center justify-center gap-2.5 rounded-full bg-primary py-4 px-10 text-center font-medium text-white hover:bg-opacity-90 lg:px-8 md:px-10"
     >
       <span>
@@ -35,7 +35,7 @@ const CardThree = () => {
     </Link>
 
     <Link
-      to="/ui/popup"
+      to="/withdraw"
       className="inline-flex items-center justify-center gap-2.5 rounded-full bg-meta-3 py-4 px-10 text-center font-medium text-white hover:bg-opacity-90 lg:px-8 sm:px-10"
     >
       <span>

@@ -4,6 +4,7 @@ import DarkModeSwitcher from './DarkModeSwitcher';
 import DropdownMessage from './DropdownMessage';
 import DropdownNotification from './DropdownNotification';
 import DropdownUser from './DropdownUser';
+import Report from './Report';
 
 const Header = (props) => {
   return (
@@ -106,6 +107,7 @@ const Header = (props) => {
 
             {/* <!-- Chat Notification Area --> */}
             <DropdownMessage />
+            
             {/* <!-- Chat Notification Area --> */}
           </ul>
 

@@ -41,6 +41,21 @@ const reducer = (state, action) => {
           ...state,
           currentCompany: action.currentCompany,
         };
+        case 'transaction':
+        return {
+          ...state,
+          transaction: action.transaction,
+        };
+        case 'firstname':
+        return {
+          ...state,
+          firstname: action.firstname,
+        };
+        case 'lastname':
+        return {
+          ...state,
+          lastname: action.lastname,
+        };
     default:
       return state;
   }

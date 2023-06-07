@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import Withdraw from '../../components/Withdraw';
 import { useStateValue } from '../../Context/StateProvider.js';
 
-const Popup = () => {
+const Deposit = () => {
   const [firstnamee, setfirstname] = useState('');
   const [lastnamee, setlastname] = useState('');
   const [email, setemail] = useState('');
@@ -48,7 +48,7 @@ const Popup = () => {
 
   return (
     <DefaultLayout>
-      <Breadcrumb pageName="Money Checkout to chapa" />
+      <Breadcrumb pageName="Deposit Money from Chapa" />
       {/* <!-- Input Fields --> */}
       <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
         <div className="flex flex-col gap-5.5 p-6.5">
@@ -152,7 +152,7 @@ const Popup = () => {
                   withdraw(e);
                 }}
                 type="submit"
-                value="withdraw"
+                value="Deposit"
                 className="w-full cursor-pointer rounded-lg border border-primary bg-primary p-4 text-white transition hover:bg-opacity-90"
               />
             </div>
@@ -172,4 +172,4 @@ const Popup = () => {
   );
 };
 
-export default Popup;
+export default Deposit;

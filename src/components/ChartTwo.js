@@ -85,7 +85,7 @@ const ChartTwo = () => {
           <div className="mb-4 justify-between gap-4 sm:flex">
             <div>
               <h4 className="text-xl font-semibold text-black dark:text-white">
-                stock Buy/Sell
+                Information  
               </h4>
             </div>
             <div>
@@ -98,8 +98,8 @@ const ChartTwo = () => {
                   id="#"
                   className="relative z-20 inline-flex appearance-none bg-transparent py-1 pl-3 pr-8 text-sm font-medium outline-none"
                 >
-                  <option value="">BUY</option>
-                  <option value="">SELL</option>
+                  <option value="">Company Info</option>
+                  <option value="">Rating</option>
                 </select>
                 <span className="absolute top-1/2 right-3 z-10 -translate-y-1/2">
                   <svg
@@ -125,7 +125,7 @@ const ChartTwo = () => {
             </div>
           </div>
 
-      {buy && 
+    {/*   {buy && 
       <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
       <div className="border-b border-stroke py-4 px-6.5 dark:border-strokedark"></div>
       <div className="flex flex-col gap-5.5 p-6.5">
@@ -155,11 +155,11 @@ const ChartTwo = () => {
           SELL
         </button>
       </div>
-    </div>}
+    </div>} */}
 
 
 
-    {!buy && 
+    {/* {!buy && 
     <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
     <div className="border-b border-stroke py-4 px-6.5 dark:border-strokedark"></div>
     <div className="flex flex-col gap-5.5 p-6.5">
@@ -217,7 +217,10 @@ const ChartTwo = () => {
         BUY
       </button>
     </div>
-  </div>}
+  </div>} */}
+
+   
+  
         </div>
       
       

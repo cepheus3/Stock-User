@@ -1,6 +1,15 @@
-import { fetchEmail, fetchToken } from '../FectchLocalStorage/Fech';
+import {
+  fetchbalance,
+  fetchEmail,
+  fetchfirstname,
+  fetchlastname,
+  fetchToken,
+} from '../FectchLocalStorage/Fech';
 const token = fetchToken();
 const email = fetchEmail();
+const firstname = fetchfirstname();
+const lastname = fetchlastname();
+const balance = fetchbalance();
 export const initialstate = {
   token: token,
   userEmail: email,
@@ -11,4 +20,8 @@ export const initialstate = {
   TotalSell: 0,
   customer: 0,
   currentCompany: null,
+  transaction: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  firstname: firstname,
+  lastname: lastname,
+  balance: balance,
 };

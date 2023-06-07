@@ -34,8 +34,35 @@ const TableOne = () => {
       });
   }, []);
   console.log(company, userEmail, 'sssssssss');
+
+
+  
+
+    const getTransaction = (companyName)=>{
+      axiosinstance3
+      .post('/company/getTransaction', { companyName: companyName })
+      .then((res) => {
+        if (res.status == '200') {
+          dispatch({
+            type: 'transaction',
+            transaction: res.data.message,
+          });
+          console.log( res.data.message,"messaaageee")
+        }else{
+          dispatch({
+            type: 'transaction',
+            transaction: [0,0,0,0,0,0,0,0,0,0,0,0,],
+          });
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    }
+  
+
   return (
-    <div className=" w-[700px] rounded-sm border border-stroke bg-white px-2 pt-3 pb-2.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
+    <div className=" w-[900px] rounded-sm border border-stroke bg-white px-2 pt-3 pb-2.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
       <h4 className="mb-6 text-xl font-semibold text-black dark:text-white">
         List of Companies
       </h4>
@@ -62,6 +89,12 @@ const TableOne = () => {
               Total Sell
             </h5>
           </div>
+          <div className="hidden p-2.5 text-center sm:block xl:p-5">
+            <h5 className="text-sm font-medium uppercase xsm:text-base">
+              Buy/Sell
+            </h5>
+          </div>
+ 
         </div>
 
         {company &&
@@ -69,11 +102,15 @@ const TableOne = () => {
             <div className="grid grid-cols-3 sm:grid-cols-5">
               <div className="flex items-center gap-3 p-4.5 xl:p-5">
                 <div className="flex-shrink-0">
-                  <img src={BrandFive} alt="Brand" />
+                  <button
+                  onClick={()=>{getTransaction(item.companyName)}}>
+                  <img src={BrandFive} alt="Brand" /></button>
                 </div>
+                <button>
                 <p className="hidden text-black dark:text-white sm:block">
                   {item.companyName}
                 </p>
+                </button>
               </div>
 
               <div className="flex items-center justify-center p-2.5 xl:p-5">
@@ -93,6 +130,8 @@ const TableOne = () => {
                 stockName={item.stockName}
                 userEmail={userEmail}
               ></BuyModal>
+
+
             </div>
           ))}
       </div>

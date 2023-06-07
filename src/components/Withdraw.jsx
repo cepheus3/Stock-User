@@ -15,7 +15,7 @@ return(
     <input type="hidden" name="title" value="Let us do this" />
     <input type="hidden" name="description" value="Paying with Confidence with cha" />
     <input type="hidden" name="logo" value="https://yourcompany.com/logo.png" />
-    <input type="hidden" name="callback_url" value="https://example.com/callbackurl" />
+    <input type="hidden" name="callback_url" value="http://localhost:4001/api/" />
     <input type="hidden" name="return_url" value="http://localhost:3000/dashboard" />
     <input type="hidden" name="meta[title]" value="test" />
     <button type="submit">Pay Now</button>
