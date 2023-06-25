@@ -14,7 +14,7 @@ const SignUp = () => {
   const [email, setemail] = useState('');
   const [password, setpassword] = useState('');
   const [error, setError] = useState(null);
-  const [message,setMessage]=useState('')
+  const [message, setMessage] = useState('');
   const navigate = useNavigate();
 
   const register = (e) => {
@@ -28,16 +28,30 @@ const SignUp = () => {
         password: password,
       })
       .then((res) => {
-        if (res.status == '200') {
-
+        if (res.status=='200') {
+          setMessage(res.data.message)
           console.log(res);
-          navigate('/auth/verifyotp');
-        } else {
-          console.log(res.data.error);
+          setTimeout(()=>{
+            setMessage('')
+            navigate('/auth/verifyOtp')
+ 
+         },2000)
+          
+        } 
+        if (res.status=='400') {
+          setError(res.data.error);
+          
+          setTimeout(() => {
+            setError('');
+          }, 2000);
         }
       })
       .catch((err) => {
         console.log(err);
+        setError('something went wrong check the email you typed is correct');
+        setTimeout(() => {
+          setError('');
+        }, 2000);
       });
   };
 
@@ -54,8 +68,7 @@ const SignUp = () => {
                 <img className="dark:hidden" src={LogoDark} alt="Logo" />
               </Link>
               <p className="2xl:px-20">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                suspendisse.
+                Stock Market and Exchange Platform Signup page.
               </p>
 
               <span className="mt-15 inline-block">
@@ -184,6 +197,65 @@ const SignUp = () => {
           </div>
 
           
+
+          <div className="w-full border-stroke dark:border-strokedark xl:w-1/2 xl:border-l-2">
+            <div className="w-full p-4 sm:p-12.5 xl:p-17.5">
+              <span className="mb-1.5 block font-medium">Start for free</span>
+              <h2 className="mb-9 text-2xl font-bold text-black dark:text-white sm:text-title-xl2">
+                Sign Up to Ethio Stock
+              </h2>
+              {message && (
+            <div className="flex w-full border-l-6 border-[#34D399] bg-[#34D399] bg-opacity-[15%] px-7 py-8 shadow-md dark:bg-[#1B1B24] dark:bg-opacity-30 md:p-9">
+              <div className="mr-5 flex h-9 w-full max-w-[36px] items-center justify-center rounded-lg bg-[#34D399]">
+                <svg
+                  width="16"
+                  height="12"
+                  viewBox="0 0 16 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M15.2984 0.826822L15.2868 0.811827L15.2741 0.797751C14.9173 0.401867 14.3238 0.400754 13.9657 0.794406L5.91888 9.45376L2.05667 5.2868C1.69856 4.89287 1.10487 4.89389 0.747996 5.28987C0.417335 5.65675 0.417335 6.22337 0.747996 6.59026L0.747959 6.59029L0.752701 6.59541L4.86742 11.0348C5.14445 11.3405 5.52858 11.5 5.89581 11.5C6.29242 11.5 6.65178 11.3355 6.92401 11.035L15.2162 2.11161C15.5833 1.74452 15.576 1.18615 15.2984 0.826822Z"
+                    fill="white"
+                    stroke="white"
+                  ></path>
+                </svg>
+              </div>
+              <div className="w-full">
+                <h5 className="mb-3 text-lg font-semibold text-black dark:text-[#34D399] ">
+                  Message Sent Successfully
+                </h5>
+                <p className="text-base leading-relaxed text-body">
+                  <div className="flex w-full border-l-6 border-[#34D399] bg-[#34D399] bg-opacity-[15%] px-7 py-8 shadow-md dark:bg-[#1B1B24] dark:bg-opacity-30 md:p-9">
+                    <div className="mr-5 flex h-9 w-full max-w-[36px] items-center justify-center rounded-lg bg-[#34D399]">
+                      <svg
+                        width="16"
+                        height="12"
+                        viewBox="0 0 16 12"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M15.2984 0.826822L15.2868 0.811827L15.2741 0.797751C14.9173 0.401867 14.3238 0.400754 13.9657 0.794406L5.91888 9.45376L2.05667 5.2868C1.69856 4.89287 1.10487 4.89389 0.747996 5.28987C0.417335 5.65675 0.417335 6.22337 0.747996 6.59026L0.747959 6.59029L0.752701 6.59541L4.86742 11.0348C5.14445 11.3405 5.52858 11.5 5.89581 11.5C6.29242 11.5 6.65178 11.3355 6.92401 11.035L15.2162 2.11161C15.5833 1.74452 15.576 1.18615 15.2984 0.826822Z"
+                          fill="white"
+                          stroke="white"
+                        ></path>
+                      </svg>
+                    </div>
+                    <div className="w-full">
+                      <h5 className="mb-3 text-lg font-semibold text-black dark:text-[#34D399] ">
+                        Message Sent Successfully
+                      </h5>
+                      <p className="text-base leading-relaxed text-body">
+                        {message}
+                      </p>
+                    </div>
+                  </div>
+                </p>
+              </div>
+            </div>
+          )}
+
           {error && (
             <div className="flex w-full border-l-6 border-[#F87171] bg-[#F87171] bg-opacity-[15%] px-7 py-8 shadow-md dark:bg-[#1B1B24] dark:bg-opacity-30 md:p-9">
               <div className="mr-5 flex h-9 w-full max-w-[36px] items-center justify-center rounded-lg bg-[#F87171]">
@@ -211,14 +283,6 @@ const SignUp = () => {
               </div>
             </div>
           )}
-
-          <div className="w-full border-stroke dark:border-strokedark xl:w-1/2 xl:border-l-2">
-            <div className="w-full p-4 sm:p-12.5 xl:p-17.5">
-              <span className="mb-1.5 block font-medium">Start for free</span>
-              <h2 className="mb-9 text-2xl font-bold text-black dark:text-white sm:text-title-xl2">
-                Sign Up to Ethio Stock
-              </h2>
-
               <form>
                 <div className="mb-4">
                   <label className="mb-2.5 block font-medium text-black dark:text-white">
@@ -414,7 +478,7 @@ const SignUp = () => {
                   />
                 </div>
 
-                <button className="flex w-full items-center justify-center gap-3.5 rounded-lg border border-stroke bg-gray p-4 hover:bg-opacity-50 dark:border-strokedark dark:bg-meta-4 dark:hover:bg-opacity-50">
+                {/*  <button className="flex w-full items-center justify-center gap-3.5 rounded-lg border border-stroke bg-gray p-4 hover:bg-opacity-50 dark:border-strokedark dark:bg-meta-4 dark:hover:bg-opacity-50">
                   <span>
                     <svg
                       width="20"
@@ -449,7 +513,7 @@ const SignUp = () => {
                     </svg>
                   </span>
                   Sign up with Google
-                </button>
+                </button> */}
 
                 <div className="mt-6 text-center">
                   <p>

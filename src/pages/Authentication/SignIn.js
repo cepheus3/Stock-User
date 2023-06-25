@@ -10,7 +10,7 @@ import { useStateValue } from '../../Context/StateProvider.js';
 import { useNavigate } from 'react-router-dom';
 
 const SignIn = () => {
-  const [{ token, userEmail, firstname, lastname  }, dispatch] = useStateValue();
+  const [{ token, userEmail, firstname, lastname }, dispatch] = useStateValue();
   const [email, setemail] = useState('');
   const [password, setpassword] = useState('');
   const [error, setError] = useState(null);
@@ -54,6 +54,12 @@ const SignIn = () => {
       })
       .catch((err) => {
         console.log(err);
+        setError(err.response.data.error)
+           setTimeout(()=>{
+            setError('')
+
+           },2000)
+        
       });
   };
 
@@ -315,7 +321,7 @@ const SignIn = () => {
                   />
                 </div>
 
-                <button className="flex w-full items-center justify-center gap-3.5 rounded-lg border border-stroke bg-gray p-4 hover:bg-opacity-50 dark:border-strokedark dark:bg-meta-4 dark:hover:bg-opacity-50">
+                {/* <button className="flex w-full items-center justify-center gap-3.5 rounded-lg border border-stroke bg-gray p-4 hover:bg-opacity-50 dark:border-strokedark dark:bg-meta-4 dark:hover:bg-opacity-50">
                   <span>
                     <svg
                       width="20"
@@ -350,7 +356,7 @@ const SignIn = () => {
                     </svg>
                   </span>
                   Sign in with Google
-                </button>
+                </button> */}
 
                 <div className="mt-6 text-center">
                   <p>

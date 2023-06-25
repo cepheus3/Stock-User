@@ -7,14 +7,14 @@ import ChartTwo from '../../components/ChartTwo.js';
 import TableOne from '../../components/TableOne.js';
 import DefaultLayout from '../../layout/DefaultLayout.js';
 import { useEffect } from 'react';
-import axiosinstance2 from '../../Axios/Axios2';
+import axiosinstance from '../../Axios/Axios';
 /* import axios from 'axios';
  */
 import { useStateValue } from '../../Context/StateProvider.js';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 const ECommerce = () => {
-  const [{ token, TotalSell, amount, customer }, dispatch] = useStateValue();
+  const [{ token, TotalSell, amount, userEmail }, dispatch] = useStateValue();
   /*   const getcompanyData = async () => {
     const _token = localStorage.getItem('user');
     const result = await axios.get('http://localhost:2000/api/getCompany', {
@@ -30,6 +30,18 @@ const ECommerce = () => {
 
   useEffect(() => {
     const tokken = localStorage.getItem('user');
+    axiosinstance
+      .post('/getuser', { email: userEmail })
+      .then((res) => {
+        console.log(res, 'kkkkkkkkkkkkk');
+        dispatch({
+          type: 'balance',
+          balance: res.data.balance,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
     /*   const CompanyName=localStorage.getItem('companyName')
     const amount=localStorage.getItem('amount') */
     if (tokken) {
@@ -37,6 +49,7 @@ const ECommerce = () => {
         type: 'signin',
         token: tokken,
       });
+
       /*   dispatch({
     type:'companyName',
     companyName:CompanyName

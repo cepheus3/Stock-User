@@ -27,7 +27,7 @@ const Popup = () => {
   const withdraw = (e) => {
     e.preventDefault();
     axiosinstance
-      .post('/addwallet', {
+      .post('/withdrawMoney', {
         amount: amount,
         email: email,
         firstName: firstnamee,

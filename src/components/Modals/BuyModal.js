@@ -12,6 +12,7 @@ export default function BuyModal({ name, price, stockName }) {
   const [amountsell, setamountsell] = useState(0);
   const [message, setmessage] = useState(false);
   const [error, setError] = useState(false);
+  const [insurance, setInsurance] = useState(false);
 
   const [{ company, userEmail, currentCompany }, dispatch] = useStateValue();
   const buyStock = () => {
@@ -23,6 +24,7 @@ export default function BuyModal({ name, price, stockName }) {
         amount: amountbuy,
         price: price * amountbuy,
         stockName: stockName,
+        insured: insurance,
       })
       .then((res) => {
         if (res.status == '200') {
@@ -71,7 +73,7 @@ export default function BuyModal({ name, price, stockName }) {
           setError(res.data.error);
           console.log(res.data.error);
           setTimeout(() => {
-            setmessage(false);
+            setError(false);
             //setShowModal(true);
           }, 2000);
         }
@@ -80,7 +82,7 @@ export default function BuyModal({ name, price, stockName }) {
         console.log(err);
         setError(err.response.data.error);
         setTimeout(() => {
-          setmessage(false);
+          setError(false);
         }, 2000);
       });
   };
@@ -97,10 +99,8 @@ export default function BuyModal({ name, price, stockName }) {
         >
           Buy/Sell
         </button>
-        
       </div>
 
-      
       {showModal ? (
         <>
           <div className="fixed inset-0 z-10 overflow-y-auto ">
@@ -284,6 +284,7 @@ export default function BuyModal({ name, price, stockName }) {
                                       className="sr-only"
                                       onChange={() => {
                                         setEnabled(!enabled);
+                                        setInsurance(true);
                                       }}
                                     />
                                     <div className="block h-8 w-14 rounded-full bg-meta-9 dark:bg-[#5A616B]"></div>

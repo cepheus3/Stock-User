@@ -35,31 +35,41 @@ const TableOne = () => {
   }, []);
   console.log(company, userEmail, 'sssssssss');
 
-
-  
-
-    const getTransaction = (companyName)=>{
-      axiosinstance3
-      .post('/company/getTransaction', { companyName: companyName })
+  const getTransaction = (companyName) => {
+    axiosinstance3
+      .get(`/getCompanyInfo/${companyName}`)
       .then((res) => {
         if (res.status == '200') {
           dispatch({
-            type: 'transaction',
-            transaction: res.data.message,
-          });
-          console.log( res.data.message,"messaaageee")
-        }else{
-          dispatch({
-            type: 'transaction',
-            transaction: [0,0,0,0,0,0,0,0,0,0,0,0,],
+            type: 'companyinfo',
+            companyinfo: res.data.message,
           });
         }
       })
       .catch((err) => {
         console.log(err);
       });
-    }
-  
+    axiosinstance3
+      .post('/company/getTransaction', { companyName: companyName })
+      .then((res) => {
+        if (res.status == '200') {
+          console.log('infooooooooo', res);
+          dispatch({
+            type: 'transaction',
+            transaction: res.data.message,
+          });
+          console.log(res.data.message, 'messaaageee');
+        } else {
+          dispatch({
+            type: 'transaction',
+            transaction: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          });
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <div className=" w-[900px] rounded-sm border border-stroke bg-white px-2 pt-3 pb-2.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
@@ -94,7 +104,6 @@ const TableOne = () => {
               Buy/Sell
             </h5>
           </div>
- 
         </div>
 
         {company &&
@@ -103,13 +112,17 @@ const TableOne = () => {
               <div className="flex items-center gap-3 p-4.5 xl:p-5">
                 <div className="flex-shrink-0">
                   <button
-                  onClick={()=>{getTransaction(item.companyName)}}>
-                  <img src={BrandFive} alt="Brand" /></button>
+                    onClick={() => {
+                      getTransaction(item.companyName);
+                    }}
+                  >
+                    <img src={BrandFive} alt="Brand" />
+                  </button>
                 </div>
                 <button>
-                <p className="hidden text-black dark:text-white sm:block">
-                  {item.companyName}
-                </p>
+                  <p className="hidden text-black dark:text-white sm:block">
+                    {item.companyName}
+                  </p>
                 </button>
               </div>
 
@@ -130,8 +143,6 @@ const TableOne = () => {
                 stockName={item.stockName}
                 userEmail={userEmail}
               ></BuyModal>
-
-
             </div>
           ))}
       </div>
