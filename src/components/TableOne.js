@@ -27,6 +27,10 @@ const TableOne = () => {
             type: 'company',
             company: res.data.message,
           });
+          dispatch({
+            type: 'companylength',
+            companylength: res.data.message.length,
+          });
         }
       })
       .catch((err) => {
@@ -40,10 +44,12 @@ const TableOne = () => {
       .get(`/getCompanyInfo/${companyName}`)
       .then((res) => {
         if (res.status == '200') {
+          
           dispatch({
             type: 'companyinfo',
             companyinfo: res.data.message,
           });
+          
         }
       })
       .catch((err) => {

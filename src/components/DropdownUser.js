@@ -17,6 +17,7 @@ const DropdownUser = () => {
       firstname,
       lastname,
       balance,
+      userEmail
     },
     dispatch,
   ] = useStateValue();

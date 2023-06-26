@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import ReactApexChart from 'react-apexcharts';
 import BrandFive from '../images/brand/brand-02.svg';
 import { useStateValue } from '../Context/StateProvider';
-
+import PopMessage from './Modals/PopMessage';
 const options = {
   colors: ['#3C50E0', '#80CAEE'],
   chart: {
@@ -154,10 +154,7 @@ const ChartTwo = () => {
           </p>
         </div>
         <br></br>
-        <div className="w-full">
-          <p className="font-semibold text-secondary">Discription</p>
-          <p className="text-sm font-medium">Google</p>
-        </div>
+        <PopMessage></PopMessage>
       </div>
     </>
   );

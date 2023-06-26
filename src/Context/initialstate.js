@@ -25,4 +25,6 @@ export const initialstate = {
   lastname: lastname,
   balance: balance,
   companyinfo: null,
+  companylength: 0,
+  message: null,
 };

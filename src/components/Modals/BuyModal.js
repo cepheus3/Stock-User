@@ -39,7 +39,7 @@ export default function BuyModal({ name, price, stockName }) {
           setError(res.data.error);
           console.log(res.data.error);
           setTimeout(() => {
-            setmessage(false);
+            setError(false);
           }, 2000);
         }
       })
@@ -47,7 +47,7 @@ export default function BuyModal({ name, price, stockName }) {
         console.log(err);
         setError(err.response.data.error);
         setTimeout(() => {
-          setmessage(false);
+          setError(false);
         }, 2000);
       });
   };

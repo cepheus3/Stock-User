@@ -66,6 +66,16 @@ const reducer = (state, action) => {
         ...state,
         companyinfo: action.companyinfo,
       };
+    case 'message':
+      return {
+        ...state,
+        message: action.message,
+      };
+    case 'companylength':
+      return {
+        ...state,
+        companylength: action.companylength,
+      };
     default:
       return state;
   }
